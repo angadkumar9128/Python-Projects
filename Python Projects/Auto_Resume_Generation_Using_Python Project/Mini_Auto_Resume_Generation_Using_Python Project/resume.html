@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Resume</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <p>Contact Information: <span id="contact">contact@example.com | (123) 456-7890</span></p>
+  </header>
+
+  <section class="section">
+    <h2>Education</h2>
+    <ul id="education">
+      <!-- Education details will be added dynamically using JavaScript -->
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Experience</h2>
+    <ul id="experience">
+      <!-- Experience details will be added dynamically using JavaScript -->
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Skills</h2>
+    <ul id="skills">
+      <!-- Skills will be added dynamically using JavaScript -->
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Projects</h2>
+    <ul id="projects">
+      <!-- Projects will be added dynamically using JavaScript -->
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Summary</h2>
+    <p id="summary">
+      <!-- Summary will be added dynamically using JavaScript -->
+    </p>
+  </section>
+
+  <script>
+    // Sample data for illustration purposes. Replace with your own data.
+    const educationData = [
+      { school: "University of XYZ", degree: "Bachelor of Science", year: "2015" },
+      { school: "ABC College", degree: "High School Diploma", year: "2011" }
+    ];
+
+    const experienceData = [
+      { company: "Company A", role: "Software Engineer", duration: "2016 - 2019" },
+      { company: "Company B", role: "Web Developer", duration: "2015 - 2016" }
+    ];
+
+    const skillsData = ["HTML", "CSS", "JavaScript", "React", "Node.js"];
+
+    const projectsData = [
+      { title: "Project A", description: "Lorem ipsum dolor sit amet" },
+      { title: "Project B", description: "Consectetur adipiscing elit" }
+    ];
+
+    const summaryData = "I am a passionate web developer with expertise in front-end technologies.";
+
+    // Function to populate the sections with dynamic data
+    function populateSections() {
+      const educationList = document.getElementById("education");
+      const experienceList = document.getElementById("experience");
+      const skillsList = document.getElementById("skills");
+      const projectsList = document.getElementById("projects");
+      const summary = document.getElementById("summary");
+
+      educationData.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.school}, ${item.degree} - ${item.year}`;
+        educationList.appendChild(li);
+      });
+
+      experienceData.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.role} at ${item.company}, ${item.duration}`;
+        experienceList.appendChild(li);
+      });
+
+      skillsData.forEach(skill => {
+        const li = document.createElement("li");
+        li.textContent = skill;
+        skillsList.appendChild(li);
+      });
+
+      projectsData.forEach(project => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${project.title}:</strong> ${project.description}`;
+        projectsList.appendChild(li);
+      });
+
+      summary.textContent = summaryData;
+    }
+
+    populateSections();
+  </script>
+</body>
+</html>
